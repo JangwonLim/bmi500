@@ -1,0 +1,72 @@
+AI Code Review — LLM Documentation
+
+LLM Used
+--------
+GPT-5.6 Luna (Instant mode), the ChatGPT model used to perform the code review.
+
+Source Code Reviewed
+--------------------
+File: matvec_multiply_john.py
+
+Prompt 1 — Code Review Request
+------------------------------
+User prompt:
+
+TASK: Perform a code review.
+
+RULES:
+1. Do not invent problems to seem thorough. If something is fine, say it is fine.
+2. Name what the code does well, specifically, not as a throat-clearing compliment.
+3. Distinguish clearly between: a correctness bug, a diagnostic or usability weakness, a performance cost, a style preference, and a deliberate trade-off the author may have made on purpose. Do not present a preference as a defect.
+
+Output from the LLM:
+
+AI Code Review
+
+Overall assessment: The implementation is correct for its stated input contract. It
+computes matrix-vector multiplication by applying dot_product() to each matrix row,
+validates dimensions, rejects booleans/non-real values, and handles an empty matrix.
+
+The review identified:
+- No correctness bug in the core matrix-vector multiplication.
+- Correct dot-product computation and length checking.
+- Correct handling of rectangular matrices.
+- Reasonable empty-matrix behavior.
+- Repeated validation of the vector as a performance cost.
+- Python nested-list allocation as a memory/performance characteristic of the test
+  harness.
+- Restricting inputs to list/tuple as a defensible API/design choice.
+- Error messages as a minor diagnostic/usability improvement.
+- Some comments as a minor style issue.
+
+The review specifically characterized repeated vector validation as a real performance
+cost but also as a deliberate trade-off because dot_product() is reused to keep
+validation consistent. It did not classify that choice as a correctness bug.
+
+Prompt 2 — File Generation Request
+----------------------------------
+User prompt:
+
+"generate ai_code_review.txt file to contain your review."
+
+Output from the LLM:
+
+The LLM generated an ai_code_review.txt file containing the complete code review,
+including the overall assessment, categorized findings, severity/assessment
+distinctions, and bottom-line recommendation.
+
+Prompt 3 — Documentation Request
+--------------------------------
+User prompt:
+
+"Document the LLM used, your prompts, and the outputs. Save in a ai_code_review.txt file"
+
+Output from the LLM:
+
+This document records:
+1. The LLM used.
+2. The source code reviewed.
+3. The original code-review prompt verbatim.
+4. A concise record of the code-review output and its findings.
+5. The file-generation prompt and resulting output.
+6. The current documentation request and the resulting documentation artifact.

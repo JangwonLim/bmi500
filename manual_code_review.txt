@@ -1,0 +1,6 @@
+Partner: John Jun
+
+Overall, I think the code is structured well and easy to understand. 
+But, one thing that I noticed is that main() function does not test anything. The comment told to "test" the matrix-vector product function, but the code cannot distinguish a right answer from a wrong one when it computes a product and prints only five values. 
+
+On the other hand, I think its best part is to exclude the boolean in _is_numeric deliberately. bool subclasses int in python, so True passes every ordinary numeric check and dot_product([True], [2]) quietely returs 2. It's good to notice it before and address it. 
