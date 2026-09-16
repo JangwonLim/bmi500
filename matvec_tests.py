@@ -14,8 +14,8 @@ import math
 import random
 import unittest
 
-import matvec_multiply
-from matvec_multiply import dot_product, matrix_vector_product
+import bmi500.matvec_multiply as matvec_multiply
+from bmi500.matvec_multiply import dot_product, matrix_vector_product
 
 
 class DotProductTests(unittest.TestCase):
